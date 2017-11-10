@@ -12,7 +12,7 @@ function GetIP()
 }
 $url = 'https://exonerator.torproject.org/?ip='. $ip .'&timestamp=2017-10-26&lang=en';
 $ch = curl_init();
-
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_URL, $url);
 
 curl_setopt($ch, CURLOPT_TIMEOUT, 12); 
@@ -21,4 +21,6 @@ $result = curl_exec($ch);
 
 curl_close ($ch);
 if(strpos( $result, 'Result is negative' ) !== false) {echo 'No ';}
+if( $result == '' ) {echo 'Try Again Later';}
+
 ?>
