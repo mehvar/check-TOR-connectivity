@@ -22,5 +22,7 @@ $result = curl_exec($ch);
 curl_close ($ch);
 if(strpos( $result, 'Result is negative' ) !== false) {echo 'No ';}
 if( $result == '' ) {echo 'Try Again Later';}
+# Or you can use the below commented line instead of line no. 24
+#if( $result == '' ) {echo str_repeat("Try again Later -=", 1000);}
 
 ?>
